@@ -1,0 +1,93 @@
+<html>
+<body>
+    <div class="login">
+       <h1>Student Exam Performance Indicator</h1>
+   
+       <form action="{{ url_for('predict_datapoint')}}" method="post">
+        <h1>
+            <legend>Student Exam Performance Prediction</legend>
+        </h1>
+
+        <div class="mb-3">
+            <label class="form-label">Gender</label>
+            <select class="form-control" name="gender" required>
+                <option value="">Select your Gender</option>
+                {% for gender in ['male', 'female'] %}
+                    <option value="{{ gender }}" {% if form_data and form_data.gender == gender %}selected{% endif %}>
+                        {{ gender|title }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Race or Ethnicity</label>
+            <select class="form-control" name="race_ethnicity" required>
+                <option value="">Select Ethnicity</option>
+                {% for group in ['A', 'B', 'C', 'D', 'E'] %}
+                    <option value="group {{ group }}" {% if form_data and form_data.race_ethnicity == 'group ' + group %}selected{% endif %}>
+                        Group {{ group }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Parental Level of Education</label>
+            <select class="form-control" name="parental_level_of_education" required>
+                <option value="">Select Parent Education</option>
+                {% for edu in ["associate's degree", "bachelor's degree", "high school", "master's degree", "some college", "some high school"] %}
+                    <option value="{{ edu }}" {% if form_data and form_data.parental_level_of_education == edu %}selected{% endif %}>
+                        {{ edu }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Lunch Type</label>
+            <select class="form-control" name="lunch" required>
+                <option value="">Select Lunch Type</option>
+                {% for type in ['free/reduced', 'standard'] %}
+                    <option value="{{ type }}" {% if form_data and form_data.lunch == type %}selected{% endif %}>
+                        {{ type }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Test preparation Course</label>
+            <select class="form-control" name="test_preparation_course" required>
+                <option value="">Select Test Course</option>
+                {% for course in ['none', 'completed'] %}
+                    <option value="{{ course }}" {% if form_data and form_data.test_preparation_course == course %}selected{% endif %}>
+                        {{ course|title }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Writing Score out of 100</label>
+            <input class="form-control" type="number" name="writing_score" 
+                   value="{{ form_data.writing_score if form_data }}"
+                   placeholder="Enter your Writing Score" min='0' max='100' required />
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Reading Score out of 100</label>
+            <input class="form-control" type="number" name="reading_score" 
+                   value="{{ form_data.reading_score if form_data }}"
+                   placeholder="Enter your Reading score" min='0' max='100' required />
+        </div>
+
+        <div class="mb-3">
+            <input class="btn btn-primary" type="submit" value="Predict your Maths Score" required />
+        </div>
+    </form>
+    <h2>
+       THE  prediction is {{results}}
+    </h2>
+   <body>
+</html>
