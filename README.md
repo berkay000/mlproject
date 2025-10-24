@@ -1,5 +1,7 @@
 # Student Performance Prediction Project
 
+[Türkçe](README_TR.md)
+
 This machine learning project focuses on predicting student performance in mathematics based on various demographic and educational factors. It demonstrates a complete end-to-end machine learning pipeline implementation, from data analysis to model deployment.
 
 ## Project Overview
