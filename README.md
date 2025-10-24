@@ -88,8 +88,8 @@ python application.py
 
 
 ## Contact
-- LinkedIn: [https://www.linkedin.com/in/berkay-akparlar]()
-- Email: [bakparlarr@gmail.com]()
+- LinkedIn: [Berkay Akparlar](https://www.linkedin.com/in/berkay-akparlar)
+- Email: [bakparlarr@gmail.com](mailto:bakparlarr@gmail.com)
 
 
 ## License
